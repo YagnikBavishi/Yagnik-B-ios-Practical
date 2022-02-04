@@ -24,6 +24,13 @@
 		3630761C278C619400818C8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3630761F278C619400818C8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36307621278C619400818C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		366CC22727959DD800E53C07 /* Variables.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Variables.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		366CC22927959E2500E53C07 /* Operators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Operators.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		366CC22A2795A4E500E53C07 /* Working_with_Text .playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Working_with_Text .playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		366CC22B2795A51E00E53C07 /* Control_Flow.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Control_Flow.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		366CC22C2795A5A700E53C07 /* Arrays.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Arrays.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		36AB854C2796F1CE00386388 /* Optionals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Optionals.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		36AB854D2796F22500386388 /* Dictionaries.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Dictionaries.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +47,7 @@
 		36307607278C619200818C8A = {
 			isa = PBXGroup;
 			children = (
+				366CC22627959D6C00E53C07 /* SwiftPlayground */,
 				36307612278C619200818C8A /* iOSPracticals */,
 				36307611278C619200818C8A /* Products */,
 			);
@@ -65,6 +73,20 @@
 				36307621278C619400818C8A /* Info.plist */,
 			);
 			path = iOSPracticals;
+			sourceTree = "<group>";
+		};
+		366CC22627959D6C00E53C07 /* SwiftPlayground */ = {
+			isa = PBXGroup;
+			children = (
+				366CC22727959DD800E53C07 /* Variables.playground */,
+				366CC22927959E2500E53C07 /* Operators.playground */,
+				366CC22A2795A4E500E53C07 /* Working_with_Text .playground */,
+				366CC22B2795A51E00E53C07 /* Control_Flow.playground */,
+				366CC22C2795A5A700E53C07 /* Arrays.playground */,
+				36AB854C2796F1CE00386388 /* Optionals.playground */,
+				36AB854D2796F22500386388 /* Dictionaries.playground */,
+			);
+			path = SwiftPlayground;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

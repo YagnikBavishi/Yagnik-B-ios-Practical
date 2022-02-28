@@ -4,8 +4,8 @@ class LoginPageViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var lblLogin: UILabel!
-    
-    //MARK: - UIViewControllers
+ 
+    //MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         addGuesture()

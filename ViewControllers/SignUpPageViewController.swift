@@ -5,7 +5,7 @@ class SignUpPageViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var lblSignUp: UILabel!
     
-    //MARK: - UIViewControllers
+    //MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         addGuesture()

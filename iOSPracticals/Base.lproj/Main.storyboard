@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iOSPracticals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="iOSPracticals" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,7 +24,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Basic Auto Layout"/>
                                 <connections>
-                                    <segue destination="vGm-f3-kZt" kind="presentation" modalPresentationStyle="fullScreen" id="y66-Nu-fpV"/>
+                                    <segue destination="vGm-f3-kZt" kind="presentation" modalPresentationStyle="fullScreen" id="dcE-lh-MjR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Arz-wa-scS">
@@ -34,7 +34,17 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="UI Components"/>
                                 <connections>
-                                    <segue destination="QAo-PI-BEO" kind="presentation" modalPresentationStyle="fullScreen" id="pLq-yN-jh1"/>
+                                    <segue destination="QAo-PI-BEO" kind="show" id="IxY-Aw-nYL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CsW-ip-qq6">
+                                <rect key="frame" x="30" y="166" width="354" height="31"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Navigation"/>
+                                <connections>
+                                    <segue destination="gbw-HM-ui7" kind="presentation" modalPresentationStyle="fullScreen" id="n5l-bm-IVt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -42,10 +52,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Arz-wa-scS" secondAttribute="trailing" constant="30" id="GcZ-7C-dbs"/>
+                            <constraint firstItem="CsW-ip-qq6" firstAttribute="top" secondItem="Arz-wa-scS" secondAttribute="bottom" constant="15" id="HqI-HW-n48"/>
                             <constraint firstItem="Arz-wa-scS" firstAttribute="top" secondItem="MQu-FH-BfQ" secondAttribute="bottom" constant="15" id="IMD-MG-eLz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MQu-FH-BfQ" secondAttribute="trailing" constant="30" id="MAb-Xc-4VK"/>
                             <constraint firstItem="MQu-FH-BfQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="RpV-oa-1rU"/>
                             <constraint firstItem="MQu-FH-BfQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="TxP-tz-lB5"/>
+                            <constraint firstItem="CsW-ip-qq6" firstAttribute="leading" secondItem="Arz-wa-scS" secondAttribute="leading" id="ZH0-0M-Ud0"/>
+                            <constraint firstItem="CsW-ip-qq6" firstAttribute="trailing" secondItem="Arz-wa-scS" secondAttribute="trailing" id="ZMl-4h-4ot"/>
                             <constraint firstItem="Arz-wa-scS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="bfh-rh-BGq"/>
                         </constraints>
                     </view>
@@ -67,10 +80,22 @@
         <!--PageViewController-->
         <scene sceneID="pI7-bp-AsK">
             <objects>
-                <viewControllerPlaceholder storyboardName="UIComponentsStoryboard" referencedIdentifier="PageViewController" id="QAo-PI-BEO" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="UIComponentsStoryboard" referencedIdentifier="PageViewController" id="QAo-PI-BEO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Dhg-ne-PbF"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJP-xK-9c4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="633" y="47"/>
+        </scene>
+        <!--Navigation-->
+        <scene sceneID="FL5-y9-I7F">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Navigation" id="gbw-HM-ui7" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="JuZ-3m-DuI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZyK-CZ-KoC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="618" y="97"/>
         </scene>
     </scenes>
     <resources>

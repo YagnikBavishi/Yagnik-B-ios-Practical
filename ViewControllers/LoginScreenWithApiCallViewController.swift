@@ -66,7 +66,7 @@ class LoginScreenWithApiCallViewController: UIViewController, Storyboarded {
     func loginWithAlamofire(user: UserLogin) {
         if let url = URL(string: "https://reqres.in/api/login") {
             let parameter = ["email": user.email, "password": user.password]
-            AlamofireRequest.alamofireRequest(withURl: url, httpMethod: .post, withParameter: parameter, withEncoding: JSONEncoding.default, viewController: self) { [weak self] (responseData) in
+            AlamofireRequest.alamofireRequest(withURl: url, httpMethod: .post, withParameter: parameter, withEncoding: JSONEncoding.default) { [weak self] (responseData) in
                 self?.coordinator?.startTableViewWithAlamofireViewController(message: "Alamofire")
             }
         }

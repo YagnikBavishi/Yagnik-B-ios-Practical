@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="iOSPracticals" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6t7-vD-l2r">
+                                <rect key="frame" x="30" y="94" width="354" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="eve.holt@reqres.in" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nfJ-NV-D26">
+                                <rect key="frame" x="30" y="224" width="354" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cityslicka" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGI-PK-Ob9">
+                                <rect key="frame" x="30" y="277" width="354" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGa-Sc-beP">
+                                <rect key="frame" x="30" y="329" width="354" height="31"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Login "/>
+                                <connections>
+                                    <action selector="btnLoginAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9QA-uI-RrX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JGa-Sc-beP" firstAttribute="top" secondItem="SGI-PK-Ob9" secondAttribute="bottom" constant="15" id="66s-i7-TnS"/>
+                            <constraint firstItem="JGa-Sc-beP" firstAttribute="trailing" secondItem="SGI-PK-Ob9" secondAttribute="trailing" id="FcU-3f-Q8k"/>
+                            <constraint firstItem="6t7-vD-l2r" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="HrX-Un-rgz"/>
+                            <constraint firstItem="JGa-Sc-beP" firstAttribute="leading" secondItem="SGI-PK-Ob9" secondAttribute="leading" id="KCw-8G-eHu"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6t7-vD-l2r" secondAttribute="trailing" constant="30" id="LnI-9Q-wcx"/>
+                            <constraint firstItem="SGI-PK-Ob9" firstAttribute="trailing" secondItem="nfJ-NV-D26" secondAttribute="trailing" id="TQn-18-jK3"/>
+                            <constraint firstItem="nfJ-NV-D26" firstAttribute="trailing" secondItem="6t7-vD-l2r" secondAttribute="trailing" id="TmB-sd-5Hi"/>
+                            <constraint firstItem="6t7-vD-l2r" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="YHl-P6-zsP"/>
+                            <constraint firstItem="SGI-PK-Ob9" firstAttribute="top" secondItem="nfJ-NV-D26" secondAttribute="bottom" constant="15" id="fZ3-mE-pGt"/>
+                            <constraint firstItem="SGI-PK-Ob9" firstAttribute="leading" secondItem="nfJ-NV-D26" secondAttribute="leading" id="ggH-Yc-gHN"/>
+                            <constraint firstItem="nfJ-NV-D26" firstAttribute="leading" secondItem="6t7-vD-l2r" secondAttribute="leading" id="i6R-U6-QmL"/>
+                            <constraint firstItem="nfJ-NV-D26" firstAttribute="top" secondItem="6t7-vD-l2r" secondAttribute="bottom" constant="100" id="y4N-we-4ux"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnLogin" destination="JGa-Sc-beP" id="02c-W4-UaV"/>
+                        <outlet property="tfEmail" destination="nfJ-NV-D26" id="8Qz-H8-led"/>
+                        <outlet property="tfPassword" destination="SGI-PK-Ob9" id="Odt-vV-dx4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="97" y="11"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

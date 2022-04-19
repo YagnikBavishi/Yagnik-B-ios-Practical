@@ -7,6 +7,7 @@ target 'iOSPracticals' do
 pod 'Alamofire', '~> 5.5' ## Alamofire with API calling
 pod 'AlamofireRSSParser' ## RSS Parser
 pod 'R.swift', '~> 5.4.0' ## for avoiding static data throughout the project
+pod 'SwiftMessages' ## Custom Alerts Message
   # Pods for iOSPracticals
 
 end

@@ -57,10 +57,21 @@
                                     <segue destination="HCQ-dF-g6c" kind="presentation" modalPresentationStyle="fullScreen" id="gkS-Ig-mzK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="070-TT-7d7">
+                                <rect key="frame" x="30" y="258" width="354" height="31"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Architecture"/>
+                                <connections>
+                                    <segue destination="Klo-Vp-7iK" kind="presentation" modalPresentationStyle="fullScreen" id="QhU-Cm-ze4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="070-TT-7d7" firstAttribute="trailing" secondItem="UT6-YT-JyL" secondAttribute="trailing" id="7z5-J6-XRt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Arz-wa-scS" secondAttribute="trailing" constant="30" id="GcZ-7C-dbs"/>
                             <constraint firstItem="CsW-ip-qq6" firstAttribute="top" secondItem="Arz-wa-scS" secondAttribute="bottom" constant="15" id="HqI-HW-n48"/>
                             <constraint firstItem="Arz-wa-scS" firstAttribute="top" secondItem="MQu-FH-BfQ" secondAttribute="bottom" constant="15" id="IMD-MG-eLz"/>
@@ -73,6 +84,8 @@
                             <constraint firstItem="CsW-ip-qq6" firstAttribute="leading" secondItem="Arz-wa-scS" secondAttribute="leading" id="ZH0-0M-Ud0"/>
                             <constraint firstItem="CsW-ip-qq6" firstAttribute="trailing" secondItem="Arz-wa-scS" secondAttribute="trailing" id="ZMl-4h-4ot"/>
                             <constraint firstItem="Arz-wa-scS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="bfh-rh-BGq"/>
+                            <constraint firstItem="070-TT-7d7" firstAttribute="top" secondItem="UT6-YT-JyL" secondAttribute="bottom" constant="15" id="o0c-yF-fXK"/>
+                            <constraint firstItem="070-TT-7d7" firstAttribute="leading" secondItem="UT6-YT-JyL" secondAttribute="leading" id="w8v-xD-K9W"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -117,6 +130,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8U7-Rv-lHs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="627" y="165"/>
+        </scene>
+        <!--ArchitectureStoryBoard-->
+        <scene sceneID="N4f-46-fvD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ArchitectureStoryBoard" id="Klo-Vp-7iK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jhd-g6-1si" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="221"/>
         </scene>
     </scenes>
     <resources>

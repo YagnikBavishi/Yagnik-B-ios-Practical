@@ -5,6 +5,10 @@ import Foundation
 enum Storyboard: String {
     
     case apiStoryBoard = "APIStoryBoards"
+    case architectureStoryBoard = "ArchitectureStoryBoard"
+    case mvcStoryboard = "MVCStoryboard"
+    case mvpStoryboard = "MVPStoryBoard"
+    case mvvmStoryboard = "MVVMStoryboard"
     
 }
 

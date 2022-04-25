@@ -30,7 +30,7 @@ class LoginPresenter {
         if let url = URL(string: "https://reqres.in/api/login") {
             let userModel = UserLogin(email: userEmail , password: userPassword )
             let parameter = ["email": userModel.email, "password": userModel.password]
-            AlamofireRequest.alamofireRequest(withURl: url, httpMethod: .post, withParameter: parameter, withEncoding: JSONEncoding.default) { [weak self] (responseData) in
+            AlamofireRequest.alamofireRequest(withURl: url, httpMethod: .post, withParameter: parameter, decodingType: ResponseToken.self, withEncoding: JSONEncoding.default) { [weak self] (responseData) in
                 guard let self = self else {
                     return
                 }

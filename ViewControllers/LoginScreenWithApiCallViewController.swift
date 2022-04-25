@@ -24,6 +24,7 @@ class LoginScreenWithApiCallViewController: UIViewController, Storyboarded {
         if let navController = self.navigationController {
             coordinator = AuthenticationCoordinator(navController)
         }
+        self.hideKeyboardWhenTapAround() 
     }
     
     func registerUser(user: UserLogin) {
@@ -33,7 +34,7 @@ class LoginScreenWithApiCallViewController: UIViewController, Storyboarded {
             do {
                 urlRequest.httpBody = try JSONEncoder().encode(user)
             } catch let error {
-                print("Error\(error.localizedDescription)")
+                Alerts.customAlert(message: "Unsuccess", body: "\(error.localizedDescription)", viewController: self)
             }
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
             urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -42,21 +43,18 @@ class LoginScreenWithApiCallViewController: UIViewController, Storyboarded {
                 guard let responseData = data else {
                     return
                 }
-                print("Response Data is....\(responseData)")
-                
                 if let error = error {
-                    print("Error...\(error.localizedDescription)")
+                    Alerts.customAlert(message: error.localizedDescription, body: "", viewController: self ?? UIViewController())
                 }
-    
+                
                 do {
                     let decoder = JSONDecoder()
-                    let userResponse = try decoder.decode(ResponseToken.self, from: responseData)
-                    print("\(userResponse)")
+                    let _ = try decoder.decode(ResponseToken.self, from: responseData)
                     DispatchQueue.main.async {
                         self?.coordinator?.startTableViewWithAlamofireViewController(message: "URL Session")
                     }
                 } catch let error {
-                    print("Error...\(error.localizedDescription)")
+                    Alerts.customAlert(message: "Unsuccess", body: "\(error.localizedDescription)", viewController: self ?? UIViewController())
                 }
             }
             dataTask.resume()
@@ -66,23 +64,63 @@ class LoginScreenWithApiCallViewController: UIViewController, Storyboarded {
     func loginWithAlamofire(user: UserLogin) {
         if let url = URL(string: "https://reqres.in/api/login") {
             let parameter = ["email": user.email, "password": user.password]
-            AlamofireRequest.alamofireRequest(withURl: url, httpMethod: .post, withParameter: parameter, withEncoding: JSONEncoding.default) { [weak self] (responseData) in
-                self?.coordinator?.startTableViewWithAlamofireViewController(message: "Alamofire")
+            AlamofireRequest.alamofireRequest(withURl: url, httpMethod: .post, withParameter: parameter, decodingType: ResponseToken.self, withEncoding: JSONEncoding.default) { [weak self] (responseData) in
+                guard let self = self else {
+                    return
+                }
+                if responseData != nil {
+                    Alerts.customAlert(message: "Success", body: "", viewController: self)
+                    self.coordinator?.startTableViewWithAlamofireViewController(message: "Alamofire")
+                } else {
+                    Alerts.customAlert(message: "Unsuccess", body: "", viewController: self)
+                }
             }
         }
     }
     
+    func validateData(_ email: String, _ password: String, _ flag: Bool ) {
+        if email.isEmpty {
+            Alerts.customAlert(message: "", body: "Empty Email", viewController: self)
+        } else if password.isEmpty  {
+            Alerts.customAlert(message: "", body: "Empty Password", viewController: self)
+        } else if email == "eve.holt@reqres.in" && password == "cityslicka" {
+            flag == true ? registerUser(user: user) : loginWithAlamofire(user: user)
+            Alerts.customAlert(message: "Success", body: "", viewController: self)
+        } else {
+            Alerts.customAlert(message: "Unsuccess", body: "", viewController: self)
+        }
+    }
+    
     //MARK: - Actions
+    @IBAction func btnBackAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func registerUser(_ sender: UIButton) {
         user.email = tfEmail.text ?? ""
         user.password = tfPassword.text ?? ""
-        registerUser(user: user)
+        validateData(user.email, user.password, true)
     }
     
     @IBAction func loginWithAlamofire(_ sender: UIButton) {
         user.email = tfEmail.text ?? ""
         user.password = tfPassword.text ?? ""
-        loginWithAlamofire(user: user)
+        validateData(user.email, user.password, false)
     }
     
 }// End of Class
+
+// MARK: - UITextFieldDelegate
+extension LoginScreenWithApiCallViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case self.tfEmail:
+            self.tfPassword.becomeFirstResponder()
+        default:
+           self.tfPassword.resignFirstResponder()
+        }
+        return true
+    }
+
+}// End of Extension

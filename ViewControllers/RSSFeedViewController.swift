@@ -3,7 +3,7 @@ import Alamofire
 import AlamofireRSSParser
 
 class RSSFeedViewController: UIViewController, Storyboarded {
-
+    
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -27,14 +27,13 @@ class RSSFeedViewController: UIViewController, Storyboarded {
             AF.request(url).responseRSS { [weak self] (response) in
                 switch response.result {
                 case .success(let feed):
-                    print("feed...\(feed)")
                     for index in feed.items {
-                        self?.newsData.append(itemData(title: index.title, pubDate: index.pubDate))
+                        self?.newsData.append(itemData(title: index.title, pubDate: index.pubDate, link: index.link))
                     }
                     self?.tableView.reloadData()
                     break
                 case .failure(let error):
-                    print("error in rss....\(error)")
+                    Alerts.customAlert(message: "Unsuccess", body: "\(error.localizedDescription)", viewController: self ?? UIViewController())
                 }
             }
         }
@@ -58,9 +57,15 @@ extension RSSFeedViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.lblTitle.text = newsData[indexPath.row].title
-        if let pubDate = newsData[indexPath.row].pubDate {
-            cell.lblPublishDate.text =  "\(String(describing: pubDate))"
 
+        if let pubDate = newsData[indexPath.row].pubDate {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .full
+            formatter.timeStyle = .full
+            formatter.locale = Locale(identifier: "nl_NL")
+            formatter.setLocalizedDateFormatFromTemplate("dd-MM-yyyy")
+            let datetime = formatter.string(from: pubDate)
+            cell.lblPublishDate.text =  "\(String(describing: datetime))"
         }
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
@@ -74,6 +79,16 @@ extension RSSFeedViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(Constant.CELL_HEIGHT)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let url = URL(string: newsData[indexPath.row].link ?? "https://www.apple.com/") else {
+            return
+        }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }// End of Extension

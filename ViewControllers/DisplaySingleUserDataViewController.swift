@@ -15,8 +15,12 @@ class DisplaySingleUserDataViewController: UIViewController, Storyboarded {
     //MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialSetUp()
         getData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        initialSetUp()
     }
     
     //MARK: - Actions
@@ -29,6 +33,7 @@ class DisplaySingleUserDataViewController: UIViewController, Storyboarded {
         imgProfile.layer.borderWidth = CGFloat(Constant.TWO)
         imgProfile.layer.borderColor = UIColor.black.cgColor
         imgProfile.layer.cornerRadius = imgProfile.frame.height / 2
+        self.imgProfile.clipsToBounds = true
     }
     
     fileprivate func getData() {
@@ -38,19 +43,14 @@ class DisplaySingleUserDataViewController: UIViewController, Storyboarded {
                 guard let responseData = data else {
                     return
                 }
-                print("Data is..\(responseData)")
-                
-                if let urlResponse = urlResponse {
-                    print("URL Response...\(urlResponse)")
-                }
                 
                 if let error = error {
-                    print("Error...\(error.localizedDescription)")
+                    Alerts.customAlert(message: "Unsuccess", body: "\(error.localizedDescription)", viewController: self ?? UIViewController())
                 }
                 
                 do {
                     let decoder = JSONDecoder()
-                    let userResponse = try decoder.decode(SingleUserDataClass.self, from: responseData)
+                    let userResponse = try decoder.decode(SingleUser.self, from: responseData)
                     DispatchQueue.main.async {
                         self?.lblEmail.text = userResponse.data.email
                         self?.lblFirstAndLastName.text = userResponse.data.firstName + " " + userResponse.data.lastName
@@ -61,7 +61,7 @@ class DisplaySingleUserDataViewController: UIViewController, Storyboarded {
                         }
                     }
                 } catch let error {
-                    print(error.localizedDescription)
+                    Alerts.customAlert(message: "Unsuccess", body: "\(error.localizedDescription)", viewController: self ?? UIViewController())
                 }
             }; dataTask.resume()
         }

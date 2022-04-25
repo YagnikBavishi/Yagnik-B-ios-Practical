@@ -6,82 +6,64 @@
 //
 
 import UIKit
-import Alamofire
 
 class MVCViewController: UIViewController, Storyboarded {
 
     // MARK: - Outlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var txtFirstName: UITextField!
+    @IBOutlet weak var txtLastAName: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
     
-    //MARK: - Variables
+    // MARK: - Variables
     var coordinator: ArchitectureCoordinator?
-    var fetchedData = [DataModel]()
 
     // MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialSetUp()
+        self.hideKeyboardWhenTapAround()
+    }
+  
+    // MARK: - File Private Functions
+    fileprivate func validateFields() -> String? {
+        if let firstName = txtFirstName.text , let lastName = txtLastAName.text, let email = txtEmail.text {
+            if((firstName.isEmpty)) {
+                return "First Name is Empty"
+            } else if(lastName.isEmpty) {
+                return "Last Name is Empty"
+            } else if(email.isEmpty) {
+                return "Email is Empty"
+            }
+            return nil
+        }
+        return nil
     }
     
-    //MARK: - File Private Functions
-    fileprivate func initialSetUp() {
-        tableView.dataSource = self
-        tableView.delegate = self
-        registerCell()
-        getData()
-    }
-    
-    fileprivate func registerCell(){
-        tableView.register(UINib(nibName: "RSSTableViewCell", bundle: nil), forCellReuseIdentifier: "RSSTableViewCell")
-    }
-    
-    fileprivate func getData() {
-        if let url = URL(string: "https://jsonplaceholder.typicode.com/posts") {
-            AlamofireRequest.alamofireRequest(withURl: url, httpMethod: .get, withParameter: nil, withEncoding: URLEncoding.default) { [weak self] (responseData) in
-                guard let self = self else {
-                    return
-                }
-                if let userData = responseData {
-                    do {
-                        let decoder = JSONDecoder()
-                        let userResponse = try decoder.decode([DataModel].self, from: userData)
-                        for index in userResponse {
-                            self.fetchedData.append(DataModel(userId: index.userId, id: index.id , title: index.title, body: index.body))
-                        }
-                        self.tableView.reloadData()
-                    } catch {
-                        Alerts.customAlert(message: "Data Loaded Error", body: "Data is not Loaded", viewController: self)
-                    }
-                }
+    // MARK: - Actions
+    @IBAction func btnSubmitAction(_ sender: UIButton) {
+        if let response = validateFields() {
+            Alerts.customAlert(message: response, body:"" , viewController: self)
+        } else {
+            if let firstName = txtFirstName.text, let lastName = txtLastAName.text {
+                Alerts.customAlert(message: "Success", body: "\(firstName + " " + lastName)", viewController: self)
             }
         }
     }
     
-}// End of class
+}// End of Class
 
-//MARK: - UITableViewDataSource
-extension MVCViewController: UITableViewDataSource {
+// MARK: - UITextFieldDelegate
+extension MVCViewController: UITextFieldDelegate {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedData.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RSSTableViewCell") as? RSSTableViewCell else {
-            return UITableViewCell()
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case self.txtFirstName:
+            self.txtLastAName.becomeFirstResponder()
+        case self.txtLastAName:
+            self.txtEmail.becomeFirstResponder()
+        default:
+           self.txtEmail.resignFirstResponder()
         }
-        
-        cell.lblTitle.text = self.fetchedData[indexPath.row].title
-        return cell
+        return true
     }
-    
-}// End of Extension
 
-//MARK: -  UITableViewDelegate
-extension MVCViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(Constant.CELL_HEIGHT)
-    }
-    
 }// End of Extension

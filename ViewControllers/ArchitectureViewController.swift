@@ -26,6 +26,10 @@ class ArchitectureViewController: UIViewController,Storyboarded {
     }
     
     // MARK: - Actions
+    @IBAction func btnBackAction(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func startMVCArchitecture(_ sender: UIButton) {
         coordinator?.goToMVCArchitecture()
     }

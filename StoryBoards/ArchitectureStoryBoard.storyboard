@@ -61,7 +61,14 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jF0-DE-Xuh" secondAttribute="trailing" constant="30" id="xLq-lO-f9Y"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="VyE-9T-aRJ"/>
+                    <navigationItem key="navigationItem" id="5fu-Ih-fq4">
+                        <barButtonItem key="leftBarButtonItem" title="Back" image="arrow.left" catalog="system" id="mrF-PP-UhU">
+                            <color key="tintColor" systemColor="linkColor"/>
+                            <connections>
+                                <action selector="btnBackAction:" destination="Y6W-OH-hqX" id="WwA-aY-RUn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,9 +94,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -23,6 +23,7 @@ class MVVMLoginViewController: UIViewController, Storyboarded {
     // MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTapAround()
         bindData()
     }
     
@@ -40,9 +41,37 @@ class MVVMLoginViewController: UIViewController, Storyboarded {
         }
     }
     
+    fileprivate func validateData(_ email: String, _ password: String) {
+        if email.isEmpty {
+            Alerts.customAlert(message: "", body: "Empty Email", viewController: self)
+        } else if password.isEmpty  {
+            Alerts.customAlert(message: "", body: "Empty Password", viewController: self)
+        } else if email == "eve.holt@reqres.in" && password == "cityslicka" {
+            loginViewModel.login(email: tfEmail.text ?? "" , password: tfPassword.text ?? "")
+            Alerts.customAlert(message: "Success", body: "", viewController: self)
+        } else {
+            Alerts.customAlert(message: "Unsuccess", body: "", viewController: self)
+        }
+    }
+    
     // MARK: - Actions
     @IBAction func btnLoginAction(_ sender: UIButton) {
-        loginViewModel.login(email: tfEmail.text ?? "" , password: tfPassword.text ?? "")
+        validateData(tfEmail.text ?? "", tfPassword.text ?? "")
     }
     
 }// End of class
+
+// MARK: - UITextFieldDelegate
+extension MVVMLoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case self.tfEmail:
+            self.tfPassword.becomeFirstResponder()
+        default:
+           self.tfPassword.resignFirstResponder()
+        }
+        return true
+    }
+
+}// End of Extension

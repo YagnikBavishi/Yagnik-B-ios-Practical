@@ -35,6 +35,10 @@ class AuthenticationCoordinator: Coordinator {
         navController?.pushViewController(RSSFeedViewController, animated: true)
     }
     
+    func backToLoginScreen() {
+        navController?.popViewController(animated: true)
+    }
+    
     func finish() {
         
     }

@@ -74,19 +74,12 @@ class TableViewWithApiCallViewController: UIViewController, Storyboarded {
         self.title = "Alamofire"
         fetchedStudentData = []
         if let url = URL(string: "https://reqres.in/api/users") {
-            AlamofireRequest.alamofireRequest(withURl: url, httpMethod: .get, withParameter: nil, withEncoding: URLEncoding.default) { [weak self] (responseData) in
+            AlamofireRequest.alamofireRequest(withURl: url, httpMethod: .get, withParameter: nil, decodingType: ListOfUser.self, withEncoding: URLEncoding.default) { [weak self] (responseData) in
                 if let responseData = responseData {
-                    do {
-                        let decoder = JSONDecoder()
-                        let userResponse = try decoder.decode(ListOfUser.self, from: responseData)
-                        print("userResponse\(userResponse)")
-                        for index in userResponse.data {
-                            self?.fetchedStudentData.append(UserData(id: index.id, email: index.email, firstName: index.firstName, lastName: index.lastName, avatar: index.avatar))
-                        }
-                        self?.tableView.reloadData()
-                    } catch let error {
-                        print("\(error)")
+                    for index in responseData.data {
+                        self?.fetchedStudentData.append(UserData(id: index.id, email: index.email, firstName: index.firstName, lastName: index.lastName, avatar: index.avatar))
                     }
+                    self?.tableView.reloadData()
                 }
             }
         }

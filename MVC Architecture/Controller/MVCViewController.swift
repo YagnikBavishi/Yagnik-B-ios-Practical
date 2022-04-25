@@ -37,21 +37,15 @@ class MVCViewController: UIViewController, Storyboarded {
     
     fileprivate func getData() {
         if let url = URL(string: "https://jsonplaceholder.typicode.com/posts") {
-            AlamofireRequest.alamofireRequest(withURl: url, httpMethod: .get, withParameter: nil, withEncoding: URLEncoding.default) { [weak self] (responseData) in
+            AlamofireRequest.alamofireRequest(withURl: url, httpMethod: .get, withParameter: nil, decodingType:[DataModel].self,  withEncoding: URLEncoding.default) { [weak self] (responseData) in
                 guard let self = self else {
                     return
                 }
                 if let userData = responseData {
-                    do {
-                        let decoder = JSONDecoder()
-                        let userResponse = try decoder.decode([DataModel].self, from: userData)
-                        for index in userResponse {
-                            self.fetchedData.append(DataModel(userId: index.userId, id: index.id , title: index.title, body: index.body))
-                        }
-                        self.tableView.reloadData()
-                    } catch {
-                        Alerts.customAlert(message: "Data Loaded Error", body: "Data is not Loaded", viewController: self)
+                    for index in userData {
+                        self.fetchedData.append(DataModel(userId: index.userId, id: index.id , title: index.title, body: index.body))
                     }
+                    self.tableView.reloadData()
                 }
             }
         }

@@ -50,7 +50,7 @@ class DisplaySingleUserDataViewController: UIViewController, Storyboarded {
                 
                 do {
                     let decoder = JSONDecoder()
-                    let userResponse = try decoder.decode(SingleUserDataClass.self, from: responseData)
+                    let userResponse = try decoder.decode(SingleUser.self, from: responseData)
                     DispatchQueue.main.async {
                         self?.lblEmail.text = userResponse.data.email
                         self?.lblFirstAndLastName.text = userResponse.data.firstName + " " + userResponse.data.lastName

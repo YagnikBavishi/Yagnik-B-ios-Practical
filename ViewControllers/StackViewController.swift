@@ -6,7 +6,7 @@ class StackViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var tfForDate: UITextField!
+    @IBOutlet weak var lblDate: UILabel!
     
     //MARK: - Variables
     let dateFormatter = DateFormatter()
@@ -23,7 +23,7 @@ class StackViewController: UIViewController {
     }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
-        tfForDate.text = dateFormatter.string(from: sender.date)
+        lblDate.text = dateFormatter.string(from: sender.date)
     }
     
 }// End of class
@@ -34,7 +34,7 @@ extension StackViewController {
     fileprivate func  addInitialData() {
         dateFormatter.dateFormat = "MM/dd/yyyy"
         datePicker.datePickerMode = .date
-        tfForDate.text = dateFormatter.string(from: datePicker.date)
+        lblDate.text = dateFormatter.string(from: datePicker.date)
     }
     
 }// End of Extension

@@ -45,6 +45,7 @@
 		368A5CDF2806D0A000712DF1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A5CDE2806D0A000712DF1 /* LoginViewModel.swift */; };
 		368A5CE12806E1E500712DF1 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A5CE02806E1E500712DF1 /* UserDefault.swift */; };
 		368BDFFF280E8D600089B7C5 /* Declaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368BDFFE280E8D600089B7C5 /* Declaration.swift */; };
+		368DEFEB281810A800B637B9 /* KeyboardFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368DEFEA281810A800B637B9 /* KeyboardFunctions.swift */; };
 		369CC0A027D747E200341901 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369CC09F27D747E200341901 /* CustomTextField.swift */; };
 		36AB7BA627CF64B000545AF7 /* UIComponentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36AB7BA527CF64AF00545AF7 /* UIComponentsStoryboard.storyboard */; };
 		36AB7BAA27CF834500545AF7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB7BA927CF834500545AF7 /* TableViewController.swift */; };
@@ -130,6 +131,7 @@
 		368A5CDE2806D0A000712DF1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		368A5CE02806E1E500712DF1 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		368BDFFE280E8D600089B7C5 /* Declaration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declaration.swift; sourceTree = "<group>"; };
+		368DEFEA281810A800B637B9 /* KeyboardFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardFunctions.swift; sourceTree = "<group>"; };
 		369A4BA0279FDB880095C69E /* CollectionType.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CollectionType.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		369A4BA1279FDBC10095C69E /* Functions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Functions.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		369A4BA2279FDBF30095C69E /* Closures.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Closures.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -398,6 +400,7 @@
 				368A5CE02806E1E500712DF1 /* UserDefault.swift */,
 				367340422808165000359101 /* Alerts.swift */,
 				368BDFFE280E8D600089B7C5 /* Declaration.swift */,
+				368DEFEA281810A800B637B9 /* KeyboardFunctions.swift */,
 			);
 			path = CommonFiles;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				36610CD627D1FBDA0074F233 /* StackViewController.swift in Sources */,
 				36FBDF8127CFC53000064433 /* MyCollectionViewCell.swift in Sources */,
 				367340412807FBC500359101 /* UserListViewModel.swift in Sources */,
+				368DEFEB281810A800B637B9 /* KeyboardFunctions.swift in Sources */,
 				368A5CD22806C7E700712DF1 /* ArchitectureViewController.swift in Sources */,
 				36B5C66127DB22A500C882A9 /* AppCoordinator.swift in Sources */,
 				3655858F27CF436E00963987 /* IndexTableViewCell.swift in Sources */,

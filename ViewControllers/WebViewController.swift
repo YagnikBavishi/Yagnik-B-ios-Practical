@@ -5,20 +5,23 @@ class WebViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var btnBack: UIBarButtonItem!
     
     //MARK: - Variables
     let url = URL(string: "https://www.google.com/")!
-    
+   
     //MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-        //webView.navigationDelegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         webView.load(URLRequest(url: url))
     }
 
     //MARK: - Actions
     @IBAction func rewindButtonAction(sender: UIBarButtonItem) {
-        webView.goBack ()
+        webView.goBack()
     }
     
     @IBAction func forwardAction(sender: UIBarButtonItem) {

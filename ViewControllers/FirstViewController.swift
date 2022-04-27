@@ -15,6 +15,11 @@ class FirstViewController: UIViewController {
         initialSetUp()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tfSendMessage.text = ""
+    }
+    
     //MARK: - File Private Functions
     fileprivate func initialSetUp() {
         self.navigationItem.backButtonTitle = "Back"
@@ -24,6 +29,10 @@ class FirstViewController: UIViewController {
     }
     
     //MARK: - Actions
+    @IBAction func goBackToHome(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func goToSecondViewController(_ sender: UIButton) {
         let textFieldmessage = tfSendMessage.text ?? "Empty"
         coordinator?.goToSecondViewController(message: textFieldmessage, delegate: self)
@@ -39,3 +48,12 @@ extension FirstViewController: DataPassingDelegate {
     }
     
 }// End of Extension
+
+// MARK: - UITextFieldDelegate
+extension FirstViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
+} // End of Extension

@@ -19,17 +19,20 @@ class TableViewWithApiCallViewController: UIViewController, Storyboarded {
         initialSetUp()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
-    
     //MARK: - File Private Functions
     fileprivate func initialSetUp() {
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: .plain, target: self, action: #selector(logoutAction))
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 0/255.0, green: 117/255.0, blue: 227/255.0, alpha: 1)
         activityIndicator.startAnimating()
         btnAddUser.layer.masksToBounds = true
         btnAddUser.layer.cornerRadius = CGFloat(Constant.TWENTY_FIVE)
         tableView.register(UINib(nibName: "IndexTableViewCell", bundle: nil), forCellReuseIdentifier: "IndexTableViewCell")
         message == "Alamofire" ? getDataUsingAlamofire() : getDataUsingURLSession()
+    }
+    
+    @objc fileprivate func logoutAction() {
+        coordinator?.backToLoginScreen()
     }
     
     fileprivate func getDataUsingURLSession() {
@@ -42,20 +45,13 @@ class TableViewWithApiCallViewController: UIViewController, Storyboarded {
                 guard let responseData = data else {
                     return
                 }
-                print("Data is..\(responseData)")
-                
-                if let urlResponse = urlResponse {
-                    print("URL Response...\(urlResponse)")
-                }
-                
+
                 if let error = error {
-                    print("Error...\(error.localizedDescription)")
+                    Alerts.customAlert(message: "Unsuccess", body: "\(error.localizedDescription)", viewController: self ?? UIViewController())
                 }
-                
                 do {
                     let decoder = JSONDecoder()
                     let userResponse = try decoder.decode(ListOfUser.self, from: responseData)
-                    print("with URL session...\(userResponse)")
                     for index in userResponse.data {
                         self?.fetchedStudentData.append(UserData(id: index.id, email: index.email, firstName: index.firstName, lastName: index.lastName, avatar: index.avatar))
                     }
@@ -63,7 +59,7 @@ class TableViewWithApiCallViewController: UIViewController, Storyboarded {
                         self?.tableView.reloadData()
                     }
                 } catch let error {
-                    print(error.localizedDescription)
+                    Alerts.customAlert(message: "Unsuccess", body: "\(error.localizedDescription)", viewController: self ?? UIViewController())
                 }
             }
             dataTask.resume()
@@ -74,19 +70,12 @@ class TableViewWithApiCallViewController: UIViewController, Storyboarded {
         self.title = "Alamofire"
         fetchedStudentData = []
         if let url = URL(string: "https://reqres.in/api/users") {
-            AlamofireRequest.alamofireRequest(withURl: url, httpMethod: .get, withParameter: nil, withEncoding: URLEncoding.default) { [weak self] (responseData) in
+            AlamofireRequest.alamofireRequest(withURl: url, httpMethod: .get, withParameter: nil, decodingType: ListOfUser.self, withEncoding: URLEncoding.default) { [weak self] (responseData) in
                 if let responseData = responseData {
-                    do {
-                        let decoder = JSONDecoder()
-                        let userResponse = try decoder.decode(ListOfUser.self, from: responseData)
-                        print("userResponse\(userResponse)")
-                        for index in userResponse.data {
-                            self?.fetchedStudentData.append(UserData(id: index.id, email: index.email, firstName: index.firstName, lastName: index.lastName, avatar: index.avatar))
-                        }
-                        self?.tableView.reloadData()
-                    } catch let error {
-                        print("\(error)")
+                    for index in responseData.data {
+                        self?.fetchedStudentData.append(UserData(id: index.id, email: index.email, firstName: index.firstName, lastName: index.lastName, avatar: index.avatar))
                     }
+                    self?.tableView.reloadData()
                 }
             }
         }
@@ -103,15 +92,12 @@ class TableViewWithApiCallViewController: UIViewController, Storyboarded {
                     }
                     do {
                         let json = try JSONSerialization.jsonObject(with: userData, options: [])
-                        print("Json with single User\(json)")
-                        let alert = UIAlertController(title: "User Added Sucessfully", message: "", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Dimiss", style: .cancel, handler: { _ in }))
-                        self?.present(alert, animated: true, completion: nil)
+                        Alerts.customAlert(message: "Success", body: "\(json)", viewController: self ?? UIViewController())                        
                     } catch let error {
-                        print("Error...\(error.localizedDescription)")
+                        Alerts.customAlert(message: "Unsuccess", body: "\(error.localizedDescription)", viewController: self ?? UIViewController())
                     }
                 case .failure(let error):
-                    print("Error...\(error.localizedDescription)")
+                    Alerts.customAlert(message: "Unsuccess", body: "\(error.localizedDescription)", viewController: self ?? UIViewController())
                 }
             }
         }
@@ -129,20 +115,27 @@ class TableViewWithApiCallViewController: UIViewController, Storyboarded {
         }
         
         alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak alert] (_) in
-            let userName: String?
-            let userJob: String?
+            var  userName: String?
+            var userJob: String?
             var textField = alert?.textFields?[Constant.ZERO]
             textField = alert?.textFields?[Constant.ZERO]
             userName = textField?.text
             textField = alert?.textFields?[Constant.ONE]
             userJob = textField?.text
+            if let name = userName, let job = userJob {
+                if name.isEmpty {
+                    userName = "morpheus"
+                }
+                if job.isEmpty {
+                    userJob = "leader"
+                }
+            }
             self.addUser(userName ?? "morpheus", userJob ?? "leader")
         }))
         self.present(alert, animated: true, completion: nil)
     }
     
 }// End of Class
-
 //MARK: - UITableViewDataSource
 extension TableViewWithApiCallViewController: UITableViewDataSource {
     
@@ -174,7 +167,6 @@ extension TableViewWithApiCallViewController: UITableViewDataSource {
     }
     
 }// End of Extension
-
 //MARK: - UITableViewDelegate
 extension TableViewWithApiCallViewController: UITableViewDelegate {
     
@@ -185,7 +177,7 @@ extension TableViewWithApiCallViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let id = fetchedStudentData[indexPath.row].id
         coordinator?.startDisplaySingleUserDataViewController(id: id)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }// End of Extension
-

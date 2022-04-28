@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,47 +17,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6t7-vD-l2r">
-                                <rect key="frame" x="30" y="94" width="354" height="30"/>
+                                <rect key="frame" x="30" y="144" width="354" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="eve.holt@reqres.in" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nfJ-NV-D26">
-                                <rect key="frame" x="30" y="224" width="354" height="38"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cityslicka" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGI-PK-Ob9">
-                                <rect key="frame" x="30" y="277" width="354" height="37"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGa-Sc-beP">
-                                <rect key="frame" x="30" y="329" width="354" height="31"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Login "/>
-                                <connections>
-                                    <action selector="btnLoginAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9QA-uI-RrX"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rKL-Xn-jiY">
+                                <rect key="frame" x="41.5" y="386" width="331" height="134"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="eve.holt@reqres.in" borderStyle="bezel" placeholder="Enter Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nfJ-NV-D26">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="38"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="N3k-oO-ILV"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cityslicka" borderStyle="bezel" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGI-PK-Ob9">
+                                        <rect key="frame" x="0.0" y="48" width="331" height="38"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="WbF-R3-Zyw"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGa-Sc-beP">
+                                        <rect key="frame" x="0.0" y="96" width="331" height="38"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Login "/>
+                                        <connections>
+                                            <action selector="btnLoginAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9QA-uI-RrX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.71369527330000004" green="0.95172127939999995" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="JGa-Sc-beP" firstAttribute="top" secondItem="SGI-PK-Ob9" secondAttribute="bottom" constant="15" id="66s-i7-TnS"/>
-                            <constraint firstItem="JGa-Sc-beP" firstAttribute="trailing" secondItem="SGI-PK-Ob9" secondAttribute="trailing" id="FcU-3f-Q8k"/>
+                            <constraint firstItem="rKL-Xn-jiY" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="0zN-iQ-gM0"/>
                             <constraint firstItem="6t7-vD-l2r" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="HrX-Un-rgz"/>
-                            <constraint firstItem="JGa-Sc-beP" firstAttribute="leading" secondItem="SGI-PK-Ob9" secondAttribute="leading" id="KCw-8G-eHu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6t7-vD-l2r" secondAttribute="trailing" constant="30" id="LnI-9Q-wcx"/>
-                            <constraint firstItem="SGI-PK-Ob9" firstAttribute="trailing" secondItem="nfJ-NV-D26" secondAttribute="trailing" id="TQn-18-jK3"/>
-                            <constraint firstItem="nfJ-NV-D26" firstAttribute="trailing" secondItem="6t7-vD-l2r" secondAttribute="trailing" id="TmB-sd-5Hi"/>
-                            <constraint firstItem="6t7-vD-l2r" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="YHl-P6-zsP"/>
-                            <constraint firstItem="SGI-PK-Ob9" firstAttribute="top" secondItem="nfJ-NV-D26" secondAttribute="bottom" constant="15" id="fZ3-mE-pGt"/>
-                            <constraint firstItem="SGI-PK-Ob9" firstAttribute="leading" secondItem="nfJ-NV-D26" secondAttribute="leading" id="ggH-Yc-gHN"/>
-                            <constraint firstItem="nfJ-NV-D26" firstAttribute="leading" secondItem="6t7-vD-l2r" secondAttribute="leading" id="i6R-U6-QmL"/>
-                            <constraint firstItem="nfJ-NV-D26" firstAttribute="top" secondItem="6t7-vD-l2r" secondAttribute="bottom" constant="100" id="y4N-we-4ux"/>
+                            <constraint firstItem="6t7-vD-l2r" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="YHl-P6-zsP">
+                                <variation key="heightClass=compact" constant="25"/>
+                            </constraint>
+                            <constraint firstItem="rKL-Xn-jiY" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="ZhT-gv-gqw"/>
+                            <constraint firstItem="rKL-Xn-jiY" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.8" id="uiI-Il-C39"/>
                         </constraints>
                     </view>
                     <connections>
@@ -76,8 +82,5 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

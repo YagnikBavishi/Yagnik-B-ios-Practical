@@ -32,6 +32,8 @@ struct UserData: Codable {
 }// End of Struct
 
 struct Support: Codable {
+    
     let url: String
     let text: String
+    
 }// End of Struct

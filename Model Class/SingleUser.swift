@@ -1,13 +1,13 @@
 import Foundation
 
-struct SingleUserDataClass: Codable {
+struct SingleUser: Codable {
     
-    let data: UserDataClass
+    let data: SingleUserData
     let support: SupportStruct
     
 }// End of Struct
 
-struct UserDataClass: Codable {
+struct SingleUserData: Codable {
     
     let id: Int
     let email, firstName, lastName: String
@@ -23,6 +23,8 @@ struct UserDataClass: Codable {
 }// End of Struct
 
 struct SupportStruct: Codable {
+    
     let url: String
     let text: String
+    
 }// End of Struct

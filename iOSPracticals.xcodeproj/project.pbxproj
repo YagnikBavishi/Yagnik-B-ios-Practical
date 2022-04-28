@@ -11,6 +11,7 @@
 		360EFA5327CE016600CA1146 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360EFA5227CE016600CA1146 /* PageViewController.swift */; };
 		360EFA5527CE02A100CA1146 /* UIComponentsSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360EFA5427CE02A100CA1146 /* UIComponentsSignUpViewController.swift */; };
 		360EFA5727CE02B700CA1146 /* UIComponentsLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360EFA5627CE02B700CA1146 /* UIComponentsLoginViewController.swift */; };
+		36276EB2281A884800E0DC3C /* KeyboardFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36276EB1281A884800E0DC3C /* KeyboardFunctions.swift */; };
 		36307614278C619200818C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36307613278C619200818C8A /* AppDelegate.swift */; };
 		36307616278C619200818C8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36307615278C619200818C8A /* SceneDelegate.swift */; };
 		36307618278C619200818C8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36307617278C619200818C8A /* ViewController.swift */; };
@@ -22,9 +23,9 @@
 		364969C127ECA1DC00B869E0 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364969C027ECA1DC00B869E0 /* AuthenticationCoordinator.swift */; };
 		3655858F27CF436E00963987 /* IndexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655858D27CF436E00963987 /* IndexTableViewCell.swift */; };
 		3655859027CF436E00963987 /* IndexTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3655858E27CF436E00963987 /* IndexTableViewCell.xib */; };
-		3658DC4527F16DF5008A733C /* UserLoginModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658DC4427F16DF5008A733C /* UserLoginModelClass.swift */; };
-		3658DC4727F16EA4008A733C /* ListOfUserModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658DC4627F16EA4008A733C /* ListOfUserModelClass.swift */; };
-		3658DC4927F16F04008A733C /* SingleUserModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658DC4827F16F03008A733C /* SingleUserModelClass.swift */; };
+		3658DC4527F16DF5008A733C /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658DC4427F16DF5008A733C /* UserLogin.swift */; };
+		3658DC4727F16EA4008A733C /* ListOfUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658DC4627F16EA4008A733C /* ListOfUser.swift */; };
+		3658DC4927F16F04008A733C /* SingleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658DC4827F16F03008A733C /* SingleUser.swift */; };
 		36610CD627D1FBDA0074F233 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36610CD527D1FBDA0074F233 /* StackViewController.swift */; };
 		366DFBF027C7C070004E8B62 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366DFBEF27C7C070004E8B62 /* LoginPageViewController.swift */; };
 		366DFBF227C7C080004E8B62 /* SignUpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366DFBF127C7C080004E8B62 /* SignUpPageViewController.swift */; };
@@ -65,7 +66,7 @@
 		36BE21BE27F30254007DCB7E /* RSSFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE21BD27F30254007DCB7E /* RSSFeedViewController.swift */; };
 		36BE21C127F3141B007DCB7E /* RSSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE21BF27F3141B007DCB7E /* RSSTableViewCell.swift */; };
 		36BE21C227F3141B007DCB7E /* RSSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BE21C027F3141B007DCB7E /* RSSTableViewCell.xib */; };
-		36BE21C427F3210F007DCB7E /* RSSDataModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE21C327F3210F007DCB7E /* RSSDataModelClass.swift */; };
+		36BE21C427F3210F007DCB7E /* RSSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE21C327F3210F007DCB7E /* RSSData.swift */; };
 		36CB6B8927CE54E500F33748 /* AllComponentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CB6B8827CE54E500F33748 /* AllComponentsViewController.swift */; };
 		36CB78E527D615FE00843FFE /* AboutiOS.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 36CB78E427D615FE00843FFE /* AboutiOS.pdf */; };
 		36CB78E827D61AC500843FFE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CB78E727D61AC500843FFE /* Constants.swift */; };
@@ -84,6 +85,7 @@
 		360EFA5227CE016600CA1146 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		360EFA5427CE02A100CA1146 /* UIComponentsSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponentsSignUpViewController.swift; sourceTree = "<group>"; };
 		360EFA5627CE02B700CA1146 /* UIComponentsLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponentsLoginViewController.swift; sourceTree = "<group>"; };
+		36276EB1281A884800E0DC3C /* KeyboardFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardFunctions.swift; sourceTree = "<group>"; };
 		36307610278C619200818C8A /* iOSPracticals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSPracticals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36307613278C619200818C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36307615278C619200818C8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,9 +99,9 @@
 		364969C027ECA1DC00B869E0 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		3655858D27CF436E00963987 /* IndexTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexTableViewCell.swift; sourceTree = "<group>"; };
 		3655858E27CF436E00963987 /* IndexTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexTableViewCell.xib; sourceTree = "<group>"; };
-		3658DC4427F16DF5008A733C /* UserLoginModelClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginModelClass.swift; sourceTree = "<group>"; };
-		3658DC4627F16EA4008A733C /* ListOfUserModelClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfUserModelClass.swift; sourceTree = "<group>"; };
-		3658DC4827F16F03008A733C /* SingleUserModelClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleUserModelClass.swift; sourceTree = "<group>"; };
+		3658DC4427F16DF5008A733C /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
+		3658DC4627F16EA4008A733C /* ListOfUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfUser.swift; sourceTree = "<group>"; };
+		3658DC4827F16F03008A733C /* SingleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleUser.swift; sourceTree = "<group>"; };
 		36610CD527D1FBDA0074F233 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
 		366CC22727959DD800E53C07 /* Variables.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Variables.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		366CC22927959E2500E53C07 /* Operators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Operators.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -159,7 +161,7 @@
 		36BE21BD27F30254007DCB7E /* RSSFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedViewController.swift; sourceTree = "<group>"; };
 		36BE21BF27F3141B007DCB7E /* RSSTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSTableViewCell.swift; sourceTree = "<group>"; };
 		36BE21C027F3141B007DCB7E /* RSSTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RSSTableViewCell.xib; sourceTree = "<group>"; };
-		36BE21C327F3210F007DCB7E /* RSSDataModelClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSDataModelClass.swift; sourceTree = "<group>"; };
+		36BE21C327F3210F007DCB7E /* RSSData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSData.swift; sourceTree = "<group>"; };
 		36CB6B8827CE54E500F33748 /* AllComponentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllComponentsViewController.swift; sourceTree = "<group>"; };
 		36CB78E427D615FE00843FFE /* AboutiOS.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = AboutiOS.pdf; sourceTree = "<group>"; };
 		36CB78E727D61AC500843FFE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -255,10 +257,10 @@
 		3658DC4327F16D99008A733C /* Model Class */ = {
 			isa = PBXGroup;
 			children = (
-				3658DC4427F16DF5008A733C /* UserLoginModelClass.swift */,
-				3658DC4627F16EA4008A733C /* ListOfUserModelClass.swift */,
-				3658DC4827F16F03008A733C /* SingleUserModelClass.swift */,
-				36BE21C327F3210F007DCB7E /* RSSDataModelClass.swift */,
+				3658DC4427F16DF5008A733C /* UserLogin.swift */,
+				3658DC4627F16EA4008A733C /* ListOfUser.swift */,
+				3658DC4827F16F03008A733C /* SingleUser.swift */,
+				36BE21C327F3210F007DCB7E /* RSSData.swift */,
 			);
 			path = "Model Class";
 			sourceTree = "<group>";
@@ -392,6 +394,7 @@
 		36CB78E627D61AAC00843FFE /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				36276EB1281A884800E0DC3C /* KeyboardFunctions.swift */,
 				36CB78E727D61AC500843FFE /* Constants.swift */,
 				36B7E95D27F4132F00DDDB1F /* Storyboarded.swift */,
 				3680CCA727F42A5F00B10C2C /* AlamofireRequest.swift */,
@@ -605,13 +608,13 @@
 				366DFBF027C7C070004E8B62 /* LoginPageViewController.swift in Sources */,
 				368A5CDD2806CFDA00712DF1 /* MVVMLoginViewController.swift in Sources */,
 				36307614278C619200818C8A /* AppDelegate.swift in Sources */,
-				3658DC4727F16EA4008A733C /* ListOfUserModelClass.swift in Sources */,
+				3658DC4727F16EA4008A733C /* ListOfUser.swift in Sources */,
 				360EFA5327CE016600CA1146 /* PageViewController.swift in Sources */,
 				360EFA5727CE02B700CA1146 /* UIComponentsLoginViewController.swift in Sources */,
 				36B5C66727DB263F00C882A9 /* FirstViewControllerCoordinator.swift in Sources */,
 				364969BF27ECA11100B869E0 /* LoginScreenWithApiCallViewController.swift in Sources */,
 				36CFFE5828055E8C008267F3 /* DataModel.swift in Sources */,
-				3658DC4927F16F04008A733C /* SingleUserModelClass.swift in Sources */,
+				3658DC4927F16F04008A733C /* SingleUser.swift in Sources */,
 				367340432808165000359101 /* Alerts.swift in Sources */,
 				36B5C67127DB388E00C882A9 /* ForthViewController.swift in Sources */,
 				36B5C67727DB453300C882A9 /* ForthViewControllerCoordinator.swift in Sources */,
@@ -624,6 +627,7 @@
 				36610CD627D1FBDA0074F233 /* StackViewController.swift in Sources */,
 				36FBDF8127CFC53000064433 /* MyCollectionViewCell.swift in Sources */,
 				367340412807FBC500359101 /* UserListViewModel.swift in Sources */,
+				36276EB2281A884800E0DC3C /* KeyboardFunctions.swift in Sources */,
 				368A5CD22806C7E700712DF1 /* ArchitectureViewController.swift in Sources */,
 				36B5C66127DB22A500C882A9 /* AppCoordinator.swift in Sources */,
 				3655858F27CF436E00963987 /* IndexTableViewCell.swift in Sources */,
@@ -642,9 +646,9 @@
 				366DFBF227C7C080004E8B62 /* SignUpPageViewController.swift in Sources */,
 				368BDFFF280E8D600089B7C5 /* Declaration.swift in Sources */,
 				3680CCA827F42A5F00B10C2C /* AlamofireRequest.swift in Sources */,
-				36BE21C427F3210F007DCB7E /* RSSDataModelClass.swift in Sources */,
+				36BE21C427F3210F007DCB7E /* RSSData.swift in Sources */,
 				3600335627EDF14700050F69 /* DisplaySingleUserDataViewController.swift in Sources */,
-				3658DC4527F16DF5008A733C /* UserLoginModelClass.swift in Sources */,
+				3658DC4527F16DF5008A733C /* UserLogin.swift in Sources */,
 				36CFFE5F2805966C008267F3 /* LoginPresenter.swift in Sources */,
 				36BE21C127F3141B007DCB7E /* RSSTableViewCell.swift in Sources */,
 				36B5C66327DB22B100C882A9 /* Coordinator.swift in Sources */,

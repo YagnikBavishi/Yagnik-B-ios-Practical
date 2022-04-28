@@ -19,9 +19,9 @@ class ForthViewControllerCoordinator: Coordinator {
     func finish() {
         navController?.popViewController(animated: true)
     }
-    
-    func finishToRoot() {
-        navController?.popToRootViewController(animated: true)
-    }
 
+    func finishToRoot() {
+        
+    }
+    
 }// End of class

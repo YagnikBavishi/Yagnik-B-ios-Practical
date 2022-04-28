@@ -30,9 +30,12 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Some Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W4j-lk-28F" customClass="CustomTextField" customModule="iOSPracticals" customModuleProvider="target">
                                 <rect key="frame" x="40" y="138" width="334" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="tKN-GC-Hba"/>
+                                </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZu-Ze-C5c">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Form Second VC" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZu-Ze-C5c">
                                 <rect key="frame" x="30" y="355" width="354" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
@@ -53,7 +56,15 @@
                             <constraint firstItem="39e-ty-hhq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="s8y-Ud-Kph"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home Screen" id="RGM-kz-87o"/>
+                    <navigationItem key="navigationItem" title="Home Screen" id="RGM-kz-87o">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="szl-qL-cTh"/>
+                        <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" id="AqS-ET-YGU">
+                            <connections>
+                                <action selector="goBackToHome:" destination="Y6W-OH-hqX" id="ijD-bx-D4l"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="lblMessage" destination="oZu-Ze-C5c" id="CJg-EJ-U9q"/>
                         <outlet property="tfSendMessage" destination="W4j-lk-28F" id="nHZ-A5-lYJ"/>
@@ -84,7 +95,10 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Send Data to First VC" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CZD-nU-aVQ" customClass="CustomTextField" customModule="iOSPracticals" customModuleProvider="target">
                                 <rect key="frame" x="40" y="138" width="334" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ti7-zQ-6PR" id="R0p-hj-kd5"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOe-ux-ZtS">
                                 <rect key="frame" x="40" y="224" width="334" height="31"/>
@@ -96,7 +110,7 @@
                                     <action selector="goToFirstViewController:" destination="ti7-zQ-6PR" eventType="touchUpInside" id="4c5-lq-dsE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBu-Vw-HEs">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Form First VC" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBu-Vw-HEs">
                                 <rect key="frame" x="40" y="467" width="334" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
@@ -118,16 +132,24 @@
                         <constraints>
                             <constraint firstItem="IOe-ux-ZtS" firstAttribute="trailing" secondItem="CZD-nU-aVQ" secondAttribute="trailing" id="0GD-Cw-kEq"/>
                             <constraint firstItem="CZD-nU-aVQ" firstAttribute="leading" secondItem="Xiu-jK-L0u" secondAttribute="leading" constant="40" id="DiU-Rw-gqz"/>
-                            <constraint firstItem="IOe-ux-ZtS" firstAttribute="top" secondItem="CZD-nU-aVQ" secondAttribute="bottom" constant="50" id="FPx-Vb-ofE"/>
-                            <constraint firstItem="uBu-Vw-HEs" firstAttribute="top" secondItem="5TK-DU-VpJ" secondAttribute="bottom" constant="50" id="Mcu-1u-fwK"/>
+                            <constraint firstItem="IOe-ux-ZtS" firstAttribute="top" secondItem="CZD-nU-aVQ" secondAttribute="bottom" constant="50" id="FPx-Vb-ofE">
+                                <variation key="heightClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="uBu-Vw-HEs" firstAttribute="top" secondItem="5TK-DU-VpJ" secondAttribute="bottom" constant="50" id="Mcu-1u-fwK">
+                                <variation key="heightClass=compact" constant="20"/>
+                            </constraint>
                             <constraint firstItem="Xiu-jK-L0u" firstAttribute="trailing" secondItem="CZD-nU-aVQ" secondAttribute="trailing" constant="40" id="TRc-O3-G3u"/>
-                            <constraint firstItem="5TK-DU-VpJ" firstAttribute="top" secondItem="sYc-2b-h5i" secondAttribute="bottom" constant="50" id="UBo-LC-z8S"/>
+                            <constraint firstItem="5TK-DU-VpJ" firstAttribute="top" secondItem="sYc-2b-h5i" secondAttribute="bottom" constant="50" id="UBo-LC-z8S">
+                                <variation key="heightClass=compact" constant="20"/>
+                            </constraint>
                             <constraint firstItem="IOe-ux-ZtS" firstAttribute="leading" secondItem="CZD-nU-aVQ" secondAttribute="leading" id="ULG-WO-8SC"/>
                             <constraint firstItem="uBu-Vw-HEs" firstAttribute="leading" secondItem="5TK-DU-VpJ" secondAttribute="leading" id="XN2-Pu-lj8"/>
                             <constraint firstItem="CZD-nU-aVQ" firstAttribute="top" secondItem="Xiu-jK-L0u" secondAttribute="top" constant="50" id="bvz-ww-mV2"/>
                             <constraint firstItem="sYc-2b-h5i" firstAttribute="trailing" secondItem="IOe-ux-ZtS" secondAttribute="trailing" id="e0R-wl-IQ7"/>
                             <constraint firstItem="sYc-2b-h5i" firstAttribute="leading" secondItem="IOe-ux-ZtS" secondAttribute="leading" id="lGJ-NS-WYr"/>
-                            <constraint firstItem="sYc-2b-h5i" firstAttribute="top" secondItem="IOe-ux-ZtS" secondAttribute="bottom" constant="50" id="s53-ec-Hcv"/>
+                            <constraint firstItem="sYc-2b-h5i" firstAttribute="top" secondItem="IOe-ux-ZtS" secondAttribute="bottom" constant="50" id="s53-ec-Hcv">
+                                <variation key="heightClass=compact" constant="20"/>
+                            </constraint>
                             <constraint firstItem="5TK-DU-VpJ" firstAttribute="leading" secondItem="sYc-2b-h5i" secondAttribute="leading" id="tOB-2a-o7B"/>
                             <constraint firstItem="uBu-Vw-HEs" firstAttribute="trailing" secondItem="5TK-DU-VpJ" secondAttribute="trailing" id="uP7-Y0-Tvw"/>
                             <constraint firstItem="5TK-DU-VpJ" firstAttribute="trailing" secondItem="sYc-2b-h5i" secondAttribute="trailing" id="yaV-cn-Jxp"/>
@@ -296,6 +318,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="VPo-Ya-Jw5" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dlb-Z1-lyR">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -50,3 +50,12 @@ class SecondViewController: UIViewController {
     }
     
 }// End of Class
+
+// MARK: - UITextFieldDelegate
+extension SecondViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
+} // End of Extension

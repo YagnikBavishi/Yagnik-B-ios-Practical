@@ -87,6 +87,15 @@ extension TableViewController: UISearchBarDelegate {
             return dataString.range(of: searchText, options: .caseInsensitive) != nil
         })
         tableView.reloadData()
+        if filteredData.isEmpty {
+            tableView.tableFooterView?.isHidden = true
+            tableView.tableHeaderView?.isHidden = true
+            Alerts.customAlert(message: "Nothing Found!!", body: "", viewController: self)
+        } else {
+            tableView.tableFooterView?.isHidden = false
+            tableView.tableHeaderView?.isHidden = false
+        }
+        
     }
     
 }// End of extension

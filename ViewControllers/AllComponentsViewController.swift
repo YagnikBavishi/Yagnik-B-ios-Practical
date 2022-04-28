@@ -15,6 +15,10 @@ class AllComponentsViewController: UIViewController {
     }
     
     //MARK: - Actions
+    @IBAction func goBack(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func segmentedControlActionChanged(sender: AnyObject) {
         switch(sender.selectedSegmentIndex) {
         case 0:
